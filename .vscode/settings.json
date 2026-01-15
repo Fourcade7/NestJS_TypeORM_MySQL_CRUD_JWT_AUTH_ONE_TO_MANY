@@ -23,7 +23,9 @@
         "src/user/user.service.spec.ts": true,
         "src/user/user.controller.spec.ts": true,
         "src/auth/auth.service.spec.ts": true,
-        "src/auth/auth.controller.spec.ts": true
+        "src/auth/auth.controller.spec.ts": true,
+        "src/post/post.controller.spec.ts": true,
+        "src/post/post.service.spec.ts": true
     },
     "hide-files.files": [
         "tsconfig.json",
@@ -43,6 +45,8 @@
         "src/user/user.service.spec.ts",
         "src/user/user.controller.spec.ts",
         "src/auth/auth.service.spec.ts",
-        "src/auth/auth.controller.spec.ts"
+        "src/auth/auth.controller.spec.ts",
+        "src/post/post.controller.spec.ts",
+        "src/post/post.service.spec.ts"
     ]
 }

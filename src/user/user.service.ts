@@ -27,7 +27,10 @@ export class UserService {
   }
 
   async findOne(id: number) {
-    const checkUser = await this.userRespository.findOneBy({id})
+    const checkUser = await this.userRespository.findOne({
+      where:{id},
+      relations:["posts"]
+    })
     if(!checkUser) throw new NotFoundException("User Not Found");
 
     return checkUser;
@@ -76,7 +79,7 @@ const preloadedUser = await repository.preload({ id, ...dto }); // Update qilish
 repository.merge(userEntity, dto);                 // Entity ustiga fieldlarni qo‘shadi
 
 // READ / TEKSHIRISH
-const oneUserByEmail = await repository.findOneBy({ email: dto.email });                // Shart bo‘yicha 1ta entity
+const oneUserByEmail = await repository.findOneBy({ email: dto.email });                // Shart bo‘yicha 1ta entity faqat where
 const oneUserWithRelations = await repository.findOne({ where: { email: dto.email }, relations: ['posts'] }); // Filter + relations bilan 1ta entity
 const activeUsers = await repository.findBy({ isActive: true });                        // Filter bilan list
 const allUsers = await repository.find();                                               // Hammasini list bilan
